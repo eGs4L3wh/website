@@ -57,6 +57,7 @@ nav {
     display: flex;
     gap: 2rem;
     list-style: none;
+    align-items: center;
 }
 
 .nav-links a {
@@ -67,6 +68,64 @@ nav {
 }
 
 .nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Dropdown Menu */
+.nav-item {
+    position: relative;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    min-width: 200px;
+    padding: 0.75rem 0;
+    margin-top: 0.25rem;
+    z-index: 1000;
+}
+
+/* Keep dropdown visible when hovering over it */
+.nav-item .dropdown-menu:hover {
+    display: block;
+}
+
+/* Create invisible hover bridge to prevent gap issues */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+    background: transparent;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--dark);
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--light-gray);
     color: var(--primary);
 }
 
@@ -901,6 +960,14 @@ footer {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-top: 1px solid #e5e5e5;
+        margin-top: 0;
     }
 
     .hero h1 {
