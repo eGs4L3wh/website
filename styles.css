@@ -230,6 +230,12 @@ nav {
     backdrop-filter: blur(10px);
 }
 
+/* Integration Intro Section */
+.integration-intro {
+    padding: 4rem 0;
+    background: var(--light-gray);
+}
+
 /* Services Section */
 .services {
     padding: 6rem 0;
@@ -352,12 +358,8 @@ nav {
     height: 45px;
     object-fit: contain;
     margin-bottom: 1rem;
-    filter: grayscale(100%) opacity(0.6);
-    transition: all 0.3s;
-}
-
-.system-card:hover .system-logo {
     filter: grayscale(0%) opacity(1);
+    transition: all 0.3s;
 }
 
 .system-card h4 {
@@ -515,14 +517,9 @@ nav {
     width: 160px;
     height: 60px;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.6;
-    transition: all 0.3s;
-}
-
-.client-card:hover .client-logo {
     filter: grayscale(0%);
     opacity: 1;
+    transition: all 0.3s;
 }
 
 .client-card h3 {
@@ -549,8 +546,8 @@ nav {
 /* Approach Steps */
 .approach-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
     margin-top: 3rem;
 }
 
@@ -990,6 +987,10 @@ footer {
     .results-grid,
     .capabilities-grid {
         grid-template-columns: 1fr;
+    }
+
+    .approach-steps {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
     .systems-grid {
