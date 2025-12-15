@@ -24,6 +24,15 @@
     <meta name="twitter:title" content="Vostatech LTD | Enterprise Integration Experts">
     <meta name="twitter:description" content="Boutique software integration consultancy specializing in Dell Boomi, MuleSoft, Make, and N8N. Serving enterprise clients across UK and EU.">
     
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5273X2DC7"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'G-J5273X2DC7');
+    </script>
+    
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -292,6 +301,13 @@
                     messageDiv.style.color = '#155724';
                     messageDiv.textContent = 'Thank you! Your message has been sent successfully.';
                     form.reset();
+                    
+                    // Google Analytics 4 event for successful lead form submission
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'lead_form_submit', {
+                            form_location: 'home_contact_section'
+                        });
+                    }
                 } else {
                     throw new Error('Form submission failed');
                 }
